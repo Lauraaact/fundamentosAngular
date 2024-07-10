@@ -1,0 +1,64 @@
+<h1>FUNDAMENTOS DE ANGULAR</h1>
+
+<!-- Propiedades e interpolación -->
+<section>
+  <h2>Propiedades en interpolación en Angular</h2>
+  <p>Propiedades: variables que se esctructuran en el ts</p>
+  <p>Interpolación: Uso de las variables en en HTML de forma automática</p>
+  <!-- La interpolacion de variables se hace con {{}}-->
+  <p>Este es un Bootcamp con la especialista {{especialista}}, el boootcamp tiene {{horasBootcamp}} horas.</p>
+  <ul>
+    <li>Primero {{contenidoBootcamp.tecnologia1}}</li>
+    <li>Despues {{contenidoBootcamp.tecnologia2}}</li>
+    <li>Actualmente {{contenidoBootcamp.tecnologia5}}</li>
+  </ul>
+  <p>El contenido del producto va a ser{{objetoProducto.nombre}}, la cantidad de productos es {{objetoProducto.cantidad}} y actualmente se encuentra {{objetoProducto.vendido}}</p>
+</section>
+<hr>
+<!-- Enlace de datos -->
+<section>
+  <h2>Enlace de datos</h2>
+  <h3>Manejo de eventos:</h3>
+  <p>Acciones que podemos ejecutar cuando hacemos algo en el navegador</p>
+  <button type="button" (click)="saludo()">Click me</button>
+  <!-- Ejemplo 2 -->
+  <br>
+  <div class="caja {{colorFondo}}" (click)="manejarClick()" (mouseover)="manejarMouseOver()" (mouseout)="manejarMouseOut()"></div>
+
+  <h3>Enlace de atributos:</h3>
+  <!-- Manipular atributos de html de forma condicional -->
+  <button type="button" [disabled]="!isLogged">Comprar productos</button>
+</section>
+<!--
+  {{Interpolación}}
+  (eventos)
+  [atributos condicionados]
+-->
+<hr>
+<!-- Control de flujo -->
+<section>
+  <h2>Control de flujo</h2>
+  <p>Condicionales</p>
+
+  <h3>CONDICIONALES - if</h3>
+  @if (isDelete) {
+    <button type="button">Borrar Producto</button>
+  }@else {
+    <button type="button">Modificar producto</button>
+  }
+  <!-- @for (item of items; track $index){} -->
+  <h3>Condicional con directiva de Angular</h3>
+  <!-- Directiva ngIf -->
+   <div *ngIf="isShowed; else noDiv">
+      <p>Este parrafo se muestra porque 'isShowed' es verdadero</p>
+   </div>
+   <ng-template #noDiv>
+      <p> Este parrafo se muestra porque 'isShowed' es falso</p>
+   </ng-template>
+   <h3>Ciclo for</h3>
+   <p>Los productos en Stock son: </p>
+   <ol>
+    <li *ngFor="let producto of productos">{{producto}}</li>
+   </ol>
+</section>
+
